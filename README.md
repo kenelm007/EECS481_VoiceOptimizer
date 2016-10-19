@@ -4,10 +4,12 @@ Synopsis
 
 This is an EECS481 course project, maintained by Shuoyang Cui, Samir Desai, Shengjie Pan, and Siyuan Sheng.
 
+
 Code Example
 
 The program mainly invokes functions in AVFoundation libary to process and optimize voice.
 Code is still in development.
+
 
 Motivation
 
@@ -15,18 +17,22 @@ People with limited speech ability usually find it hard to express themselves cl
 
 The goal of the project is to help Brad to easily communicate with others and utilize artificial intelligence via voice control. Also, the project should shed light on the solution for other people with limited speech ability. 
 
+
 Installation
 
 This project is still in development.
+
 
 API Reference
 
 AVFoundation: https://developer.apple.com/av-foundation/
 UIKit: https://getuikit.com/docs/core.html
 
+
 Tests
 
 There are several test audio files in the audiofiles directory. Use these test audio as input, and play the optimized audio to Siri. Siri can recognize the optimized voice in a successful test.
+
 
 Contributors
 
@@ -35,6 +41,7 @@ Shuoyang Cui: Responsible for the UI design and implement.
 Samir Desai: Research about the new features, now working on eliminating noise
 
 Shengjie Pan and Siyuan Sheng： Responsible for the core code part, including record and play voice, implement and test new features.
+
 
 License
 
