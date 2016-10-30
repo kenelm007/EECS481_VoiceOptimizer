@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57C255FF1DC66B9000C6B064 /* SecondStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C255FE1DC66B9000C6B064 /* SecondStateController.swift */; };
+		57C256011DC677C700C6B064 /* ThirdStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C256001DC677C700C6B064 /* ThirdStateController.swift */; };
 		57EE74371DBDACEF00B2A176 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE74361DBDACEF00B2A176 /* AppDelegate.swift */; };
-		57EE74391DBDACEF00B2A176 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE74381DBDACEF00B2A176 /* ViewController.swift */; };
+		57EE74391DBDACEF00B2A176 /* FirstStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE74381DBDACEF00B2A176 /* FirstStateController.swift */; };
 		57EE743C1DBDACEF00B2A176 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57EE743A1DBDACEF00B2A176 /* Main.storyboard */; };
 		57EE743E1DBDACEF00B2A176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EE743D1DBDACEF00B2A176 /* Assets.xcassets */; };
 		57EE74411DBDACEF00B2A176 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57EE743F1DBDACEF00B2A176 /* LaunchScreen.storyboard */; };
@@ -34,9 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57C255FE1DC66B9000C6B064 /* SecondStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStateController.swift; sourceTree = "<group>"; };
+		57C256001DC677C700C6B064 /* ThirdStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdStateController.swift; sourceTree = "<group>"; };
 		57EE74331DBDACEF00B2A176 /* VoiceOptimizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceOptimizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EE74361DBDACEF00B2A176 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57EE74381DBDACEF00B2A176 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		57EE74381DBDACEF00B2A176 /* FirstStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStateController.swift; sourceTree = "<group>"; };
 		57EE743B1DBDACEF00B2A176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57EE743D1DBDACEF00B2A176 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57EE74401DBDACEF00B2A176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				57EE74361DBDACEF00B2A176 /* AppDelegate.swift */,
-				57EE74381DBDACEF00B2A176 /* ViewController.swift */,
+				57EE74381DBDACEF00B2A176 /* FirstStateController.swift */,
+				57C255FE1DC66B9000C6B064 /* SecondStateController.swift */,
+				57C256001DC677C700C6B064 /* ThirdStateController.swift */,
 				57EE743A1DBDACEF00B2A176 /* Main.storyboard */,
 				57EE743D1DBDACEF00B2A176 /* Assets.xcassets */,
 				57EE743F1DBDACEF00B2A176 /* LaunchScreen.storyboard */,
@@ -256,7 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57EE74391DBDACEF00B2A176 /* ViewController.swift in Sources */,
+				57EE74391DBDACEF00B2A176 /* FirstStateController.swift in Sources */,
+				57C256011DC677C700C6B064 /* ThirdStateController.swift in Sources */,
+				57C255FF1DC66B9000C6B064 /* SecondStateController.swift in Sources */,
 				57EE74371DBDACEF00B2A176 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +492,7 @@
 				57EE745D1DBDACEF00B2A176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57EE745E1DBDACEF00B2A176 /* Build configuration list for PBXNativeTarget "VoiceOptimizerTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +501,7 @@
 				57EE74601DBDACEF00B2A176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57EE74611DBDACEF00B2A176 /* Build configuration list for PBXNativeTarget "VoiceOptimizerUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +510,7 @@
 				57EE74631DBDACEF00B2A176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
