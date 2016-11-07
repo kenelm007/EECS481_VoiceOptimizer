@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>voiceOptimizer.xcscheme</key>
+		<key>scribe.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F1909081DB40984003AD086</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0F19091C1DB40985003AD086</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0F1909271DB40985003AD086</key>
+		<key>C224BC6C1DC1389A00DC8EED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

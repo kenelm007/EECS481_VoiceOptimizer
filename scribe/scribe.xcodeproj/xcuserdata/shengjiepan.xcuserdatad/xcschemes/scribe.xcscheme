@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F1909081DB40984003AD086"
-               BuildableName = "voiceOptimizer.app"
-               BlueprintName = "voiceOptimizer"
-               ReferencedContainer = "container:voiceOptimizer.xcodeproj">
+               BlueprintIdentifier = "C224BC6C1DC1389A00DC8EED"
+               BuildableName = "scribe.app"
+               BlueprintName = "scribe"
+               ReferencedContainer = "container:scribe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F19091C1DB40985003AD086"
-               BuildableName = "voiceOptimizerTests.xctest"
-               BlueprintName = "voiceOptimizerTests"
-               ReferencedContainer = "container:voiceOptimizer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F1909271DB40985003AD086"
-               BuildableName = "voiceOptimizerUITests.xctest"
-               BlueprintName = "voiceOptimizerUITests"
-               ReferencedContainer = "container:voiceOptimizer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0F1909081DB40984003AD086"
-            BuildableName = "voiceOptimizer.app"
-            BlueprintName = "voiceOptimizer"
-            ReferencedContainer = "container:voiceOptimizer.xcodeproj">
+            BlueprintIdentifier = "C224BC6C1DC1389A00DC8EED"
+            BuildableName = "scribe.app"
+            BlueprintName = "scribe"
+            ReferencedContainer = "container:scribe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0F1909081DB40984003AD086"
-            BuildableName = "voiceOptimizer.app"
-            BlueprintName = "voiceOptimizer"
-            ReferencedContainer = "container:voiceOptimizer.xcodeproj">
+            BlueprintIdentifier = "C224BC6C1DC1389A00DC8EED"
+            BuildableName = "scribe.app"
+            BlueprintName = "scribe"
+            ReferencedContainer = "container:scribe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0F1909081DB40984003AD086"
-            BuildableName = "voiceOptimizer.app"
-            BlueprintName = "voiceOptimizer"
-            ReferencedContainer = "container:voiceOptimizer.xcodeproj">
+            BlueprintIdentifier = "C224BC6C1DC1389A00DC8EED"
+            BuildableName = "scribe.app"
+            BlueprintName = "scribe"
+            ReferencedContainer = "container:scribe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
