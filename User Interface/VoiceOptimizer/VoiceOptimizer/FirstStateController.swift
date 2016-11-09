@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,10 +26,11 @@ class ViewController: UIViewController {
         //            self.view.sendSubviewToBack(imageView)
         //        }
         //        view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "background")!
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
     }
+    
     
 
     override func didReceiveMemoryWarning() {
@@ -39,17 +40,15 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func recordVoice(sender: UIButton) {
+    @IBAction func recordVoice(_ sender: UIButton) {
         // TODO: the record voice function
         print("record voice")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondController = storyboard.instantiateViewControllerWithIdentifier("secondState") as! SecondStateController
-        presentViewController(secondController, animated: false, completion: nil)
+        let secondController = storyboard.instantiateViewController(withIdentifier: "secondState") as! SecondStateController
+        present(secondController, animated: false, completion: nil)
+        
         
     }
-    @IBAction func playVoice(sender: UIButton) {
-        print("play voice!")
-    }
-
+    
 }
 

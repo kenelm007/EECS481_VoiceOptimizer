@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SecondStateController: UIViewController {
     
     var seconds = 0
     var minutes = 0
-    var timer = NSTimer()
+    var timer = Timer()
+    var soundRecorder : AVAudioRecorder!
+    //var soundPlayer : AVAudioPlayer!
+    //var audioname = "audiofile.wav"
+    var filename = "record.m4a"
+    var res = ""
     
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -34,14 +40,48 @@ class SecondStateController: UIViewController {
         //        }
         //        view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         // timerLabel.center = self.view.center
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "background")!
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
       
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SecondStateController.updateTime), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(SecondStateController.updateTime), userInfo: nil, repeats: true)
+        setupsession()
+        setupRecorder()
+        soundRecorder.record()
     }
     
+    func setupRecorder(){
+        let recordSettings = [AVSampleRateKey: 44100,
+                              AVFormatIDKey: kAudioFormatAppleLossless,
+                              AVNumberOfChannelsKey: 2,
+                              AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue,
+                              AVEncoderBitRateKey: 320000] as [String : Any]
+        //var error: NSError?
+        try! soundRecorder = AVAudioRecorder(url: getRecordURL(), settings: recordSettings)
+        soundRecorder.prepareToRecord()
+    }
+
+    func setupsession(){
+        let session: AVAudioSession = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.none)
+        try! session.setActive(true)
+        
+    }
+    
+    func getCacheDirectory() ->String{
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        return paths[0]
+    }
+    
+    func getRecordURL() -> URL{
+        let path = (getCacheDirectory() as NSString).appendingPathComponent(filename)
+        let filepath = URL(fileURLWithPath: path)
+        return filepath
+    }
+    
+
     func updateTime() {
         seconds += 1
         if (seconds == 60){
@@ -59,14 +99,16 @@ class SecondStateController: UIViewController {
     
     // Mark: Action
     
-    @IBAction func stopRecording(sender: AnyObject) {
+    @IBAction func stopRecording(_ sender: AnyObject) {
         // TODO: stop recording function
         print("stop recording")
         timer.invalidate()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let thirdController = storyboard.instantiateViewControllerWithIdentifier("thirdState") as! ThirdStateController
-        presentViewController(thirdController, animated: false, completion: nil)
+        let thirdController = storyboard.instantiateViewController(withIdentifier: "thirdState") as! ThirdStateController
+        soundRecorder.stop()
 
+        present(thirdController, animated: false, completion: nil)
+        
     }
     
 
