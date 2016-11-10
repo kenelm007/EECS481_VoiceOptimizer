@@ -42,7 +42,6 @@ class ThirdStateController: UIViewController {
         backgroundImage.image = UIImage(named: "background")!
         self.view.insertSubview(backgroundImage, at: 0)
         optimize()
-        preparePlayer()
         recognizeFile(url: getAudioURL())
     }
     
@@ -73,14 +72,15 @@ class ThirdStateController: UIViewController {
         let filepath = URL(fileURLWithPath: path)
         return filepath
     }
-    func preparePlayer(){
-        try! soundPlayer = AVAudioPlayer(contentsOf: getAudioURL())
+    func preparePlayer(url: URL){
+        try! soundPlayer = AVAudioPlayer(contentsOf: url)
         soundPlayer.prepareToPlay()
         soundPlayer.volume = 2.0
     }
     
     func recognizeFile(url:URL){
         //var res = ""
+        
         guard let myRecognizer = SFSpeechRecognizer() else {
             // A recognizer is not supported for the current locale
             return
@@ -108,7 +108,7 @@ class ThirdStateController: UIViewController {
     }
     
     @IBAction func playvoice(_ sender: Any) {
-        
+        preparePlayer(url: getAudioURL())
         print("play voice!")
         soundPlayer.play()
         
@@ -174,10 +174,18 @@ class ThirdStateController: UIViewController {
         }
     }
     func getRecordURL() -> URL{
+        print("Getting URL")
         let path = (getCacheDirectory() as NSString).appendingPathComponent(filename)
         let filepath = URL(fileURLWithPath: path)
         return filepath
     }
 
+    // TODO: For testing, remove later
+    
+    @IBAction func playOriginal(_ sender: UIButton) {
+        preparePlayer(url: getRecordURL())
+        soundPlayer.play()
+        
+    }
 
 }
