@@ -16,6 +16,8 @@
 		57EE74411DBDACEF00B2A176 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57EE743F1DBDACEF00B2A176 /* LaunchScreen.storyboard */; };
 		57EE744C1DBDACEF00B2A176 /* VoiceOptimizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE744B1DBDACEF00B2A176 /* VoiceOptimizerTests.swift */; };
 		57EE74571DBDACEF00B2A176 /* VoiceOptimizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE74561DBDACEF00B2A176 /* VoiceOptimizerUITests.swift */; };
+		C277B6CC1DD8F4F400968DEC /* birthday.wav in Resources */ = {isa = PBXBuildFile; fileRef = C277B6CB1DD8F4F400968DEC /* birthday.wav */; };
+		C277B6CE1DD8F56400968DEC /* Googleshort.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C277B6CD1DD8F56400968DEC /* Googleshort.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		57EE74521DBDACEF00B2A176 /* VoiceOptimizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceOptimizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EE74561DBDACEF00B2A176 /* VoiceOptimizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOptimizerUITests.swift; sourceTree = "<group>"; };
 		57EE74581DBDACEF00B2A176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C277B6CB1DD8F4F400968DEC /* birthday.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = birthday.wav; path = ../../../../UI/EECS481_VoiceOptimizer/audiofiles/birthday.wav; sourceTree = "<group>"; };
+		C277B6CD1DD8F56400968DEC /* Googleshort.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Googleshort.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +110,9 @@
 				57C255FE1DC66B9000C6B064 /* SecondStateController.swift */,
 				57C256001DC677C700C6B064 /* ThirdStateController.swift */,
 				57EE743A1DBDACEF00B2A176 /* Main.storyboard */,
+				C277B6CB1DD8F4F400968DEC /* birthday.wav */,
 				57EE743D1DBDACEF00B2A176 /* Assets.xcassets */,
+				C277B6CD1DD8F56400968DEC /* Googleshort.m4a */,
 				57EE743F1DBDACEF00B2A176 /* LaunchScreen.storyboard */,
 				57EE74421DBDACEF00B2A176 /* Info.plist */,
 			);
@@ -244,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				57EE74411DBDACEF00B2A176 /* LaunchScreen.storyboard in Resources */,
+				C277B6CE1DD8F56400968DEC /* Googleshort.m4a in Resources */,
 				57EE743E1DBDACEF00B2A176 /* Assets.xcassets in Resources */,
 				57EE743C1DBDACEF00B2A176 /* Main.storyboard in Resources */,
+				C277B6CC1DD8F4F400968DEC /* birthday.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

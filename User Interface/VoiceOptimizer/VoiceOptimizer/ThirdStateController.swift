@@ -72,10 +72,13 @@ class ThirdStateController: UIViewController {
         let filepath = URL(fileURLWithPath: path)
         return filepath
     }
+    
     func preparePlayer(url: URL){
         try! soundPlayer = AVAudioPlayer(contentsOf: url)
         soundPlayer.prepareToPlay()
-        soundPlayer.volume = 2.0
+        soundPlayer.volume = 1.0
+        soundPlayer.enableRate = true
+        soundPlayer.rate = 1.5
     }
     
     func recognizeFile(url:URL){
@@ -187,5 +190,5 @@ class ThirdStateController: UIViewController {
         soundPlayer.play()
         
     }
-
+    
 }

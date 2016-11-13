@@ -65,7 +65,7 @@ class SecondStateController: UIViewController {
     func setupsession(){
         let session: AVAudioSession = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.none)
+        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
         try! session.setActive(true)
         
     }
