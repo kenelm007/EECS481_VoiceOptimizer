@@ -11,16 +11,13 @@ import AVFoundation
 import Speech
 
 class ThirdStateController: UIViewController {
+    
     @IBOutlet weak var rec_text: UITextView!
     var soundRecorder : AVAudioRecorder!
     var soundPlayer : AVAudioPlayer!
     var audioname = "audiofile.wav"
     var filename = "record.m4a"
-    var res = ""
-    
-    
-    
-    
+    var text = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +38,7 @@ class ThirdStateController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "background")!
         self.view.insertSubview(backgroundImage, at: 0)
-        optimize()
+        optimize(url: getRecordURL())
         recognizeFile(url: getAudioURL())
     }
     
@@ -57,7 +54,6 @@ class ThirdStateController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let firstController = storyboard.instantiateViewController(withIdentifier: "firstState") as! ViewController
         present(firstController, animated: false, completion: nil)
-
         
     }
     
@@ -74,7 +70,11 @@ class ThirdStateController: UIViewController {
     }
     
     func preparePlayer(url: URL){
-        try! soundPlayer = AVAudioPlayer(contentsOf: url)
+        do {
+            try soundPlayer = AVAudioPlayer(contentsOf: url)
+        } catch {
+            assert(false, "Fail to initial sound player")
+        }
         soundPlayer.prepareToPlay()
         soundPlayer.volume = 1.0
         soundPlayer.enableRate = true
@@ -82,28 +82,25 @@ class ThirdStateController: UIViewController {
     }
     
     func recognizeFile(url:URL){
-        //var res = ""
         
         guard let myRecognizer = SFSpeechRecognizer() else {
             // A recognizer is not supported for the current locale
             return
         }
         if !myRecognizer.isAvailable {
-            // The recognizer is not available right now
-            print ("error1")
+            print ("The recognizer is not available")
             return
         }
         let request = SFSpeechURLRecognitionRequest(url: url)
         myRecognizer.recognitionTask(with: request) { (result, error) in
             guard let result = result else {
-                // Recognition failed, so check error for details and handle it
-                print ("error2")
+                print ("Fail to recognize the audio")
                 return
             }
             if result.isFinal {
-                self.res = "\(result.bestTranscription.formattedString)"
-                print (self.res)
-                self.rec_text.text = self.res
+                self.text = "\(result.bestTranscription.formattedString)"
+                print (self.text)
+                self.rec_text.text = self.text
             }
         }
         
@@ -114,76 +111,89 @@ class ThirdStateController: UIViewController {
         preparePlayer(url: getAudioURL())
         print("play voice!")
         soundPlayer.play()
-        
 
     }
     
-    func calculateThreshold(array: Array<Float>) -> Float {
-        // median
+    func filter(array: Array<Float>) -> Array<Float> {
         var newRightArray = array.sorted{ abs($0) < abs($1) }
-        return abs(newRightArray[Int(Float(newRightArray.count) * 0.62)])
+        let threshold = abs(newRightArray[Int(Float(newRightArray.count) * 0.62)])
+        let sample = 200
+        var i = 0
+        var rightArray = array
+        while i < rightArray.count / sample {
+            let first = i * sample
+            let last = min((i + 1) * sample, rightArray.count)
+            if max(abs(rightArray[first...last].max()!), -abs(rightArray[first...last].min()!)) < threshold {
+                rightArray[first...last] = []
+                i -= 1
+            }
+            i += 1
+        }
+        return rightArray
+        
     }
 
-    func optimize() {
+    func optimize(url: URL) {
         var file: AVAudioFile!
         do {
-            file = try AVAudioFile(forReading: getRecordURL())
+            file = try AVAudioFile(forReading: url)
         } catch {
-            print ("err01")
+            assert(false, "Fail to get record file url")
         }
         let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: file.fileFormat.sampleRate, channels: file.fileFormat.channelCount, interleaved: false)
         let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(file.length))
         do {
             try file.read(into: buf) // You probably want better error handling
         } catch {
-            print ("err02")
+            assert(false, "Fail to read from record file")
         }
         
         var rightArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
-        //var leftArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[1], count:Int(buf.frameLength)))
+        // TODO: left array
         
-        //filter
-        let sample = 200
-        let threshold = calculateThreshold(array: rightArray)
-        var i = 0
-        while i < rightArray.count / sample { // TODO filter right and left track at the same time
-            let first = i * sample
-            let last = min((i + 1) * sample, rightArray.count)
-            if max(rightArray[first...last].max()!, -rightArray[first...last].min()!) < threshold {
-                rightArray[first...last] = []
-                i -= 1
-            }
-            i += 1
-        }
-        print (rightArray.count)
+        rightArray = filter(array: rightArray)
         
         let newbuf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(rightArray.count))
         newbuf.frameLength = UInt32(rightArray.count)
         for j in 0...rightArray.count-1 {
             newbuf.floatChannelData?.pointee[j] = rightArray[j]
-            newbuf.floatChannelData?.advanced(by: 1).pointee[j] = rightArray[j] // TODO modify
+            newbuf.floatChannelData?.advanced(by: 1).pointee[j] = rightArray[j]
         }
         
         let setting = [AVSampleRateKey: 44100,
                        AVFormatIDKey: kAudioFormatLinearPCM,
                        AVNumberOfChannelsKey: 2] as [String : Any]
         
-        let newfile = try! AVAudioFile(forWriting: getAudioURL(), settings: setting)
+        var newfile = AVAudioFile()
+        do {
+            newfile = try AVAudioFile(forWriting: getAudioURL(), settings: setting)
+        } catch {
+            assert(false, "Fail to open audio file")
+        }
         do {
             try newfile.write(from: newbuf)
-            print ("optimized")
         } catch {
-            print ("err03")
+            assert(false, "Fail to write into file")
         }
     }
+    
     func getRecordURL() -> URL{
         print("Getting URL")
         let path = (getCacheDirectory() as NSString).appendingPathComponent(filename)
         let filepath = URL(fileURLWithPath: path)
         return filepath
     }
-
-    // TODO: For testing, remove later
+    @IBAction func test(_ sender: Any) {
+        optimize(url: getTestURL())
+        recognizeFile(url: getTestURL())
+        recognizeFile(url: getAudioURL())
+        
+    }
+    
+    func getTestURL() -> URL{
+        let url = Bundle.main.url(forResource: "test", withExtension: "wav")
+        return url!;
+    }
     
     @IBAction func playOriginal(_ sender: UIButton) {
         preparePlayer(url: getRecordURL())

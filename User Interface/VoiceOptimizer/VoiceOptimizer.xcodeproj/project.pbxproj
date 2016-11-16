@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1AE78C1DDCEE4D002F0330 /* birthday.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F1AE78B1DDCEE4D002F0330 /* birthday.wav */; };
+		0F1AE7901DDCF001002F0330 /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F1AE78F1DDCF001002F0330 /* test.wav */; };
 		57C255FF1DC66B9000C6B064 /* SecondStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C255FE1DC66B9000C6B064 /* SecondStateController.swift */; };
 		57C256011DC677C700C6B064 /* ThirdStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C256001DC677C700C6B064 /* ThirdStateController.swift */; };
 		57EE74371DBDACEF00B2A176 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE74361DBDACEF00B2A176 /* AppDelegate.swift */; };
@@ -16,7 +18,6 @@
 		57EE74411DBDACEF00B2A176 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57EE743F1DBDACEF00B2A176 /* LaunchScreen.storyboard */; };
 		57EE744C1DBDACEF00B2A176 /* VoiceOptimizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE744B1DBDACEF00B2A176 /* VoiceOptimizerTests.swift */; };
 		57EE74571DBDACEF00B2A176 /* VoiceOptimizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE74561DBDACEF00B2A176 /* VoiceOptimizerUITests.swift */; };
-		C277B6CC1DD8F4F400968DEC /* birthday.wav in Resources */ = {isa = PBXBuildFile; fileRef = C277B6CB1DD8F4F400968DEC /* birthday.wav */; };
 		C277B6CE1DD8F56400968DEC /* Googleshort.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C277B6CD1DD8F56400968DEC /* Googleshort.m4a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F1AE78B1DDCEE4D002F0330 /* birthday.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = birthday.wav; sourceTree = "<group>"; };
+		0F1AE78F1DDCF001002F0330 /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test.wav; sourceTree = "<group>"; };
 		57C255FE1DC66B9000C6B064 /* SecondStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStateController.swift; sourceTree = "<group>"; };
 		57C256001DC677C700C6B064 /* ThirdStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdStateController.swift; sourceTree = "<group>"; };
 		57EE74331DBDACEF00B2A176 /* VoiceOptimizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceOptimizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +56,6 @@
 		57EE74521DBDACEF00B2A176 /* VoiceOptimizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceOptimizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EE74561DBDACEF00B2A176 /* VoiceOptimizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOptimizerUITests.swift; sourceTree = "<group>"; };
 		57EE74581DBDACEF00B2A176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C277B6CB1DD8F4F400968DEC /* birthday.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = birthday.wav; path = ../../../../UI/EECS481_VoiceOptimizer/audiofiles/birthday.wav; sourceTree = "<group>"; };
 		C277B6CD1DD8F56400968DEC /* Googleshort.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Googleshort.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,10 +112,11 @@
 				57C255FE1DC66B9000C6B064 /* SecondStateController.swift */,
 				57C256001DC677C700C6B064 /* ThirdStateController.swift */,
 				57EE743A1DBDACEF00B2A176 /* Main.storyboard */,
-				C277B6CB1DD8F4F400968DEC /* birthday.wav */,
 				57EE743D1DBDACEF00B2A176 /* Assets.xcassets */,
 				C277B6CD1DD8F56400968DEC /* Googleshort.m4a */,
 				57EE743F1DBDACEF00B2A176 /* LaunchScreen.storyboard */,
+				0F1AE78B1DDCEE4D002F0330 /* birthday.wav */,
+				0F1AE78F1DDCF001002F0330 /* test.wav */,
 				57EE74421DBDACEF00B2A176 /* Info.plist */,
 			);
 			path = VoiceOptimizer;
@@ -205,21 +208,22 @@
 				TargetAttributes = {
 					57EE74321DBDACEF00B2A176 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = HU3FR93XFJ;
+						DevelopmentTeam = F9ZSDT869H;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					57EE74461DBDACEF00B2A176 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = HU3FR93XFJ;
+						DevelopmentTeam = F9ZSDT869H;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Manual;
 						TestTargetID = 57EE74321DBDACEF00B2A176;
 					};
 					57EE74511DBDACEF00B2A176 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F9ZSDT869H;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 57EE74321DBDACEF00B2A176;
 					};
 				};
@@ -249,11 +253,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1AE7901DDCF001002F0330 /* test.wav in Resources */,
 				57EE74411DBDACEF00B2A176 /* LaunchScreen.storyboard in Resources */,
 				C277B6CE1DD8F56400968DEC /* Googleshort.m4a in Resources */,
 				57EE743E1DBDACEF00B2A176 /* Assets.xcassets in Resources */,
 				57EE743C1DBDACEF00B2A176 /* Main.storyboard in Resources */,
-				C277B6CC1DD8F4F400968DEC /* birthday.wav in Resources */,
+				0F1AE78C1DDCEE4D002F0330 /* birthday.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,10 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = HU3FR93XFJ;
+				DEVELOPMENT_TEAM = F9ZSDT869H;
 				INFOPLIST_FILE = VoiceOptimizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -445,10 +450,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = HU3FR93XFJ;
+				DEVELOPMENT_TEAM = F9ZSDT869H;
 				INFOPLIST_FILE = VoiceOptimizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -458,7 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = HU3FR93XFJ;
+				DEVELOPMENT_TEAM = F9ZSDT869H;
 				INFOPLIST_FILE = VoiceOptimizerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerTests;
@@ -472,7 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = HU3FR93XFJ;
+				DEVELOPMENT_TEAM = F9ZSDT869H;
 				INFOPLIST_FILE = VoiceOptimizerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerTests;
@@ -485,7 +490,8 @@
 		57EE74621DBDACEF00B2A176 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F9ZSDT869H;
 				INFOPLIST_FILE = VoiceOptimizerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerUITests;
@@ -498,7 +504,8 @@
 		57EE74631DBDACEF00B2A176 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F9ZSDT869H;
 				INFOPLIST_FILE = VoiceOptimizerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerUITests;

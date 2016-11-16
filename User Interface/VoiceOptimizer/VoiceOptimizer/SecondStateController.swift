@@ -15,8 +15,6 @@ class SecondStateController: UIViewController {
     var minutes = 0
     var timer = Timer()
     var soundRecorder : AVAudioRecorder!
-    //var soundPlayer : AVAudioPlayer!
-    //var audioname = "audiofile.wav"
     var filename = "record.m4a"
     var res = ""
     
@@ -57,16 +55,23 @@ class SecondStateController: UIViewController {
                               AVNumberOfChannelsKey: 2,
                               AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue,
                               AVEncoderBitRateKey: 320000] as [String : Any]
-        //var error: NSError?
-        try! soundRecorder = AVAudioRecorder(url: getRecordURL(), settings: recordSettings)
+        do {
+            try soundRecorder = AVAudioRecorder(url: getRecordURL(), settings: recordSettings)
+        } catch {
+            assert(false, "Fail to initial sound recorder")
+        }
         soundRecorder.prepareToRecord()
     }
 
     func setupsession(){
         let session: AVAudioSession = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-        try! session.setActive(true)
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+            try session.setActive(true)
+        } catch {
+            assert(false,"Fail to setup session")
+        }
         
     }
     
@@ -100,7 +105,7 @@ class SecondStateController: UIViewController {
     // Mark: Action
     
     @IBAction func stopRecording(_ sender: AnyObject) {
-        // TODO: stop recording function
+        
         print("stop recording")
         timer.invalidate()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -110,7 +115,5 @@ class SecondStateController: UIViewController {
         present(thirdController, animated: false, completion: nil)
         
     }
-    
-
     
 }

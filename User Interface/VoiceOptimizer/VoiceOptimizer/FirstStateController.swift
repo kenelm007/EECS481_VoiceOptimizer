@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func recordVoice(_ sender: UIButton) {
-        // TODO: the record voice function
+        
         print("record voice")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondController = storyboard.instantiateViewController(withIdentifier: "secondState") as! SecondStateController
