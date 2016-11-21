@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F1AE78C1DDCEE4D002F0330 /* birthday.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F1AE78B1DDCEE4D002F0330 /* birthday.wav */; };
-		0F1AE7901DDCF001002F0330 /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F1AE78F1DDCF001002F0330 /* test.wav */; };
+		0F1AE78C1DDCEE4D002F0330 /* test2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F1AE78B1DDCEE4D002F0330 /* test2.wav */; };
+		0F45C4F81DE13E8C003C8DC1 /* test3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F45C4F71DE13E8C003C8DC1 /* test3.wav */; };
+		0F45C4FA1DE1485C003C8DC1 /* test1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F45C4F91DE1485C003C8DC1 /* test1.wav */; };
 		57C255FF1DC66B9000C6B064 /* SecondStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C255FE1DC66B9000C6B064 /* SecondStateController.swift */; };
 		57C256011DC677C700C6B064 /* ThirdStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C256001DC677C700C6B064 /* ThirdStateController.swift */; };
 		57EE74371DBDACEF00B2A176 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE74361DBDACEF00B2A176 /* AppDelegate.swift */; };
@@ -39,8 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F1AE78B1DDCEE4D002F0330 /* birthday.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = birthday.wav; sourceTree = "<group>"; };
-		0F1AE78F1DDCF001002F0330 /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test.wav; sourceTree = "<group>"; };
+		0F1AE78B1DDCEE4D002F0330 /* test2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test2.wav; sourceTree = "<group>"; };
+		0F45C4F71DE13E8C003C8DC1 /* test3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test3.wav; sourceTree = "<group>"; };
+		0F45C4F91DE1485C003C8DC1 /* test1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test1.wav; sourceTree = "<group>"; };
 		57C255FE1DC66B9000C6B064 /* SecondStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStateController.swift; sourceTree = "<group>"; };
 		57C256001DC677C700C6B064 /* ThirdStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdStateController.swift; sourceTree = "<group>"; };
 		57EE74331DBDACEF00B2A176 /* VoiceOptimizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceOptimizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,8 +117,9 @@
 				57EE743D1DBDACEF00B2A176 /* Assets.xcassets */,
 				C277B6CD1DD8F56400968DEC /* Googleshort.m4a */,
 				57EE743F1DBDACEF00B2A176 /* LaunchScreen.storyboard */,
-				0F1AE78B1DDCEE4D002F0330 /* birthday.wav */,
-				0F1AE78F1DDCF001002F0330 /* test.wav */,
+				0F1AE78B1DDCEE4D002F0330 /* test2.wav */,
+				0F45C4F91DE1485C003C8DC1 /* test1.wav */,
+				0F45C4F71DE13E8C003C8DC1 /* test3.wav */,
 				57EE74421DBDACEF00B2A176 /* Info.plist */,
 			);
 			path = VoiceOptimizer;
@@ -228,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "VoiceOptimizer" */;
+			buildConfigurationList = 57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "voiceOptimizer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -253,12 +256,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F1AE7901DDCF001002F0330 /* test.wav in Resources */,
 				57EE74411DBDACEF00B2A176 /* LaunchScreen.storyboard in Resources */,
 				C277B6CE1DD8F56400968DEC /* Googleshort.m4a in Resources */,
 				57EE743E1DBDACEF00B2A176 /* Assets.xcassets in Resources */,
+				0F45C4FA1DE1485C003C8DC1 /* test1.wav in Resources */,
+				0F45C4F81DE13E8C003C8DC1 /* test3.wav in Resources */,
 				57EE743C1DBDACEF00B2A176 /* Main.storyboard in Resources */,
-				0F1AE78C1DDCEE4D002F0330 /* birthday.wav in Resources */,
+				0F1AE78C1DDCEE4D002F0330 /* test2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +522,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "VoiceOptimizer" */ = {
+		57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "voiceOptimizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57EE74591DBDACEF00B2A176 /* Debug */,

@@ -76,9 +76,9 @@ class ThirdStateController: UIViewController {
             assert(false, "Fail to initial sound player")
         }
         soundPlayer.prepareToPlay()
-        soundPlayer.volume = 1.0
+        soundPlayer.volume = 0.8
         soundPlayer.enableRate = true
-        soundPlayer.rate = 1.5
+        soundPlayer.rate = 1.1
     }
     
     func recognizeFile(url:URL){
@@ -183,22 +183,45 @@ class ThirdStateController: UIViewController {
         let filepath = URL(fileURLWithPath: path)
         return filepath
     }
-    @IBAction func test(_ sender: Any) {
-        optimize(url: getTestURL())
-        recognizeFile(url: getTestURL())
-        recognizeFile(url: getAudioURL())
-        
-    }
     
-    func getTestURL() -> URL{
-        let url = Bundle.main.url(forResource: "test", withExtension: "wav")
+    func getTestURL(filename: String) -> URL{
+        let url = Bundle.main.url(forResource: filename, withExtension: "wav")
         return url!;
     }
     
     @IBAction func playOriginal(_ sender: UIButton) {
         preparePlayer(url: getRecordURL())
         soundPlayer.play()
-        
+    }
+    
+    @IBAction func playTest1(_ sender: Any) {
+        preparePlayer(url: getTestURL(filename: "test1"))
+        soundPlayer.play()
+    }
+    
+    @IBAction func recognizeTest1(_ sender: Any) {
+        optimize(url: getTestURL(filename: "test1"))
+        recognizeFile(url: getAudioURL())
+    }
+    
+    @IBAction func playTest2(_ sender: Any) {
+        preparePlayer(url: getTestURL(filename: "test2"))
+        soundPlayer.play()
+    }
+    
+    @IBAction func recognizeTest2(_ sender: Any) {
+        optimize(url: getTestURL(filename: "test2"))
+        recognizeFile(url: getAudioURL())
+    }
+    
+    @IBAction func playTest3(_ sender: Any) {
+        preparePlayer(url: getTestURL(filename: "test3"))
+        soundPlayer.play()
+    }
+    
+    @IBAction func recognizeTest3(_ sender: Any) {
+        optimize(url: getTestURL(filename: "test3"))
+        recognizeFile(url: getAudioURL())
     }
     
 }
