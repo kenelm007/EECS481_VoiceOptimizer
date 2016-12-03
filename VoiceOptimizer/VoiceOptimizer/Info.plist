@@ -47,5 +47,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fb</string>
+		<string>launch</string>
+		<string>remote</string>
+		<string>amazon</string>
+		<string>youtube</string>
+		<string>comgooglemaps</string>
+	</array>
 </dict>
 </plist>

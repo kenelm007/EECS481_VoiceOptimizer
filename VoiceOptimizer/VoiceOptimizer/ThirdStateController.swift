@@ -17,8 +17,34 @@ class ThirdStateController: UIViewController {
     var soundPlayer : AVAudioPlayer!
     var audioname = "audiofile.wav"
     var filename = "record.m4a"
-    var text = ""
-    
+    var text : String = ""
+    let url_schema = [
+        "photos": "photos-redirect://",
+        "news": "applenews:",
+        "videos":  "Videos:",
+        //"brightness":  "launch://brightness/",
+        //"remote": "remote://",
+        "phone":  "launch://dial/",
+        "calendar":  "calshow:",
+        //"flashlight":  "launch://light",
+        "mail":  "message://",
+        "find my iphone":  "fmip1:",
+        "podcasts":  "pcast:",
+        "ibooks":  "ibooks:",
+        "music": "music:",
+        "facebook": "fb://",
+        "youtube": "youtube://",
+        //"messenger":,
+        //"amazon":"amazon://",
+        "map": "comgooglemaps://",
+        //"chrome": "",
+        //"safari": "safari://",
+        
+        //"timer": "clock-timer://",
+        //"alarm clock": "clock-alarm://",
+        //"world clock": "clock-worldclock://",
+        //"stopwatch": "clock-stopwatch://"
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,6 +66,7 @@ class ThirdStateController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
         optimize(url: getRecordURL())
         recognizeFile(url: getAudioURL())
+        
     }
     
     
@@ -101,12 +128,69 @@ class ThirdStateController: UIViewController {
                 self.text = "\(result.bestTranscription.formattedString)"
                 print (self.text)
                 self.rec_text.text = self.text
+                self.pre_proccess(command: self.text)
+                
+                
             }
         }
         
         return
     }
     
+    func pre_proccess(command: String){
+        let index = command.index(command.startIndex, offsetBy:4)
+        if command.substring(to: index).lowercased() == "open"{
+            let index_sub = command.index(command.startIndex, offsetBy: 5)
+            let instruction = command.substring(from: index_sub).lowercased()
+            print (instruction)
+            if url_schema[instruction] != nil
+            {
+                proccess(url: url_schema[instruction]!)
+            }
+            else {
+                print ("ERROR Command not found mei you")
+            }
+            
+        }
+        else{
+            if command.substring(to: index).lowercased() == "call"{
+                let index_sub = command.index(command.startIndex, offsetBy: 5)
+                let number = command.substring(from: index_sub).lowercased()
+                print (number)
+                call(number: number)
+            }
+        }
+        
+        
+        
+    }
+    
+    func call(number: String){
+        var appHooks = "tel://" + number;
+        var appUrl = NSURL(string: appHooks)
+        if UIApplication.shared.canOpenURL(appUrl! as URL)
+        {
+            UIApplication.shared.openURL(appUrl! as URL)
+            
+        } else {
+            //UIApplication.shared.openURL(NSURL(string: "http://instagram.com/")! as URL)
+            print("NO APPLICATION SUPPORT")
+        }
+
+    }
+    func proccess(url: String){
+        var appHooks = url
+        var appUrl = NSURL(string: appHooks)
+        if UIApplication.shared.canOpenURL(appUrl! as URL)
+        {
+            UIApplication.shared.openURL(appUrl! as URL)
+            
+        } else {
+            //UIApplication.shared.openURL(NSURL(string: "http://instagram.com/")! as URL)
+            print("NO APPLICATION SUPPORT")
+        }
+
+    }
     @IBAction func playvoice(_ sender: Any) {
         preparePlayer(url: getAudioURL())
         print("play voice!")

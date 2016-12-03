@@ -211,7 +211,7 @@
 				TargetAttributes = {
 					57EE74321DBDACEF00B2A176 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = F9ZSDT869H;
+						DevelopmentTeam = HU3FR93XFJ;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -231,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "voiceOptimizer" */;
+			buildConfigurationList = 57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "VoiceOptimizer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -440,10 +440,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F9ZSDT869H;
+				DEVELOPMENT_TEAM = HU3FR93XFJ;
 				INFOPLIST_FILE = VoiceOptimizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = ssy.VoiceOptimizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -454,10 +454,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F9ZSDT869H;
+				DEVELOPMENT_TEAM = HU3FR93XFJ;
 				INFOPLIST_FILE = VoiceOptimizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.VoiceOptimizerSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = ssy.VoiceOptimizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -522,7 +522,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "voiceOptimizer" */ = {
+		57EE742E1DBDACEF00B2A176 /* Build configuration list for PBXProject "VoiceOptimizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57EE74591DBDACEF00B2A176 /* Debug */,
