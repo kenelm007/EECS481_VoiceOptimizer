@@ -31,7 +31,12 @@ class ViewController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
     }
     
-    
+    override var shouldAutorotate: Bool{
+        return false
+    }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

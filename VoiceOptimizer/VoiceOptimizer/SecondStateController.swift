@@ -49,6 +49,13 @@ class SecondStateController: UIViewController {
         soundRecorder.record()
     }
     
+    override var shouldAutorotate: Bool{
+        return false
+    }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
+    }
+    
     func setupRecorder(){
         let recordSettings = [AVSampleRateKey: 44100,
                               AVFormatIDKey: kAudioFormatAppleLossless,

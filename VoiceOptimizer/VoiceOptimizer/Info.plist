@@ -30,6 +30,8 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>LSApplicationCategoryType</key>
+	<string>/Users/shengsiyuan/Desktop/eecs481/EECS481_VoiceOptimizer/VoiceOptimizer/VoiceOptimizer/ThirdStateController.swift:169:13: Variable &apos;appHooks&apos; was never mutated; consider changing to &apos;let&apos; constant</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -52,9 +54,12 @@
 		<string>fb</string>
 		<string>launch</string>
 		<string>remote</string>
-		<string>amazon</string>
 		<string>youtube</string>
 		<string>comgooglemaps</string>
+		<string>safari</string>
+		<string>twitter</string>
+		<string>amazon</string>
+		<string>instagram</string>
 	</array>
 </dict>
 </plist>

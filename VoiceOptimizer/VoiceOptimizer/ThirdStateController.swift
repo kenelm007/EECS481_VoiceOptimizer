@@ -37,9 +37,9 @@ class ThirdStateController: UIViewController {
         //"messenger":,
         //"amazon":"amazon://",
         "map": "comgooglemaps://",
-        //"chrome": "",
-        //"safari": "safari://",
-        
+        "safari": "https://www.google.com",
+        "twitter": "twitter://",
+        "instagram": "instagram://",
         //"timer": "clock-timer://",
         //"alarm clock": "clock-alarm://",
         //"world clock": "clock-worldclock://",
@@ -64,11 +64,20 @@ class ThirdStateController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "background")!
         self.view.insertSubview(backgroundImage, at: 0)
+        self.rec_text.isEditable = false
         optimize(url: getRecordURL())
+        preparePlayer(url: getAudioURL())
         recognizeFile(url: getAudioURL())
+        
         
     }
     
+    override var shouldAutorotate: Bool{
+        return false
+    }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -78,6 +87,7 @@ class ThirdStateController: UIViewController {
     // Mark: Action
     @IBAction func recordAnother(_ sender: UIButton) {
         print("record another")
+        stopAudio()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let firstController = storyboard.instantiateViewController(withIdentifier: "firstState") as! ViewController
         present(firstController, animated: false, completion: nil)
@@ -121,7 +131,9 @@ class ThirdStateController: UIViewController {
         let request = SFSpeechURLRecognitionRequest(url: url)
         myRecognizer.recognitionTask(with: request) { (result, error) in
             guard let result = result else {
-                print ("Fail to recognize the audio")
+                self.text = "Fail to recognize the audio"
+                print (self.text)
+                self.rec_text.text = self.text
                 return
             }
             if result.isFinal {
@@ -157,6 +169,15 @@ class ThirdStateController: UIViewController {
                 let index_sub = command.index(command.startIndex, offsetBy: 5)
                 let number = command.substring(from: index_sub).lowercased()
                 print (number)
+                let digits = CharacterSet.decimalDigits
+                for ch in number.unicodeScalars{
+                    if !digits.contains(ch){
+                        if ch == "-" {
+                            continue
+                        }
+                        return;
+                    }
+                }
                 call(number: number)
             }
         }
@@ -192,7 +213,6 @@ class ThirdStateController: UIViewController {
 
     }
     @IBAction func playvoice(_ sender: Any) {
-        preparePlayer(url: getAudioURL())
         print("play voice!")
         soundPlayer.play()
 
@@ -201,7 +221,7 @@ class ThirdStateController: UIViewController {
     func filter(array: Array<Float>) -> Array<Float> {
         var newRightArray = array.sorted{ abs($0) < abs($1) }
         let threshold = abs(newRightArray[Int(Float(newRightArray.count) * 0.62)])
-        let sample = 200
+        let sample = 500
         var i = 0
         var rightArray = array
         while i < rightArray.count / sample {
@@ -278,34 +298,43 @@ class ThirdStateController: UIViewController {
         soundPlayer.play()
     }
     
-    @IBAction func playTest1(_ sender: Any) {
-        preparePlayer(url: getTestURL(filename: "test1"))
-        soundPlayer.play()
+//    @IBAction func playTest1(_ sender: Any) {
+//        preparePlayer(url: getTestURL(filename: "test1"))
+//        soundPlayer.play()
+//    }
+//    
+//    @IBAction func recognizeTest1(_ sender: Any) {
+//        optimize(url: getTestURL(filename: "test1"))
+//        recognizeFile(url: getAudioURL())
+//    }
+//    
+//    @IBAction func playTest2(_ sender: Any) {
+//        preparePlayer(url: getTestURL(filename: "test2"))
+//        soundPlayer.play()
+//    }
+//    
+//    @IBAction func recognizeTest2(_ sender: Any) {
+//        optimize(url: getTestURL(filename: "test2"))
+//        recognizeFile(url: getAudioURL())
+//    }
+//    
+//    @IBAction func playTest3(_ sender: Any) {
+//        preparePlayer(url: getTestURL(filename: "test3"))
+//        soundPlayer.play()
+//    }
+//    
+//    @IBAction func recognizeTest3(_ sender: Any) {
+//        optimize(url: getTestURL(filename: "test3"))
+//        recognizeFile(url: getAudioURL())
+//    }
+    
+    @IBAction func stop(_ sender: Any) {
+        stopAudio()
     }
     
-    @IBAction func recognizeTest1(_ sender: Any) {
-        optimize(url: getTestURL(filename: "test1"))
-        recognizeFile(url: getAudioURL())
+    func stopAudio(){
+        if (soundPlayer.isPlaying) {
+            soundPlayer.stop()
+        }
     }
-    
-    @IBAction func playTest2(_ sender: Any) {
-        preparePlayer(url: getTestURL(filename: "test2"))
-        soundPlayer.play()
-    }
-    
-    @IBAction func recognizeTest2(_ sender: Any) {
-        optimize(url: getTestURL(filename: "test2"))
-        recognizeFile(url: getAudioURL())
-    }
-    
-    @IBAction func playTest3(_ sender: Any) {
-        preparePlayer(url: getTestURL(filename: "test3"))
-        soundPlayer.play()
-    }
-    
-    @IBAction func recognizeTest3(_ sender: Any) {
-        optimize(url: getTestURL(filename: "test3"))
-        recognizeFile(url: getAudioURL())
-    }
-    
 }
