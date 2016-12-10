@@ -61,5 +61,7 @@
 		<string>amazon</string>
 		<string>instagram</string>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string></string>
 </dict>
 </plist>

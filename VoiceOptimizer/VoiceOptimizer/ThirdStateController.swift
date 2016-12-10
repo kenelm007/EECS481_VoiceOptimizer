@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Speech
+import Contacts
 
 class ThirdStateController: UIViewController {
     
@@ -66,7 +67,7 @@ class ThirdStateController: UIViewController {
         self.view.insertSubview(backgroundImage, at: 0)
         self.rec_text.isEditable = false
         optimize(url: getRecordURL())
-        preparePlayer(url: getAudioURL())
+        prepareNewPlayer(url: getAudioURL())
         recognizeFile(url: getAudioURL())
         
         
@@ -106,7 +107,7 @@ class ThirdStateController: UIViewController {
         return filepath
     }
     
-    func preparePlayer(url: URL){
+    func prepareNewPlayer(url: URL){
         do {
             try soundPlayer = AVAudioPlayer(contentsOf: url)
         } catch {
@@ -115,7 +116,17 @@ class ThirdStateController: UIViewController {
         soundPlayer.prepareToPlay()
         soundPlayer.volume = 0.8
         soundPlayer.enableRate = true
-        soundPlayer.rate = 1.1
+        soundPlayer.rate = 1.2
+    }
+    
+    func prepareOldPlayer(url: URL){
+        do {
+            try soundPlayer = AVAudioPlayer(contentsOf: url)
+        } catch {
+            assert(false, "Fail to initial sound player")
+        }
+        soundPlayer.prepareToPlay()
+        soundPlayer.volume = 0.8
     }
     
     func recognizeFile(url:URL){
@@ -168,6 +179,7 @@ class ThirdStateController: UIViewController {
             if command.substring(to: index).lowercased() == "call"{
                 let index_sub = command.index(command.startIndex, offsetBy: 5)
                 let number = command.substring(from: index_sub).lowercased()
+                var isNumber = true
                 print (number)
                 let digits = CharacterSet.decimalDigits
                 for ch in number.unicodeScalars{
@@ -175,15 +187,52 @@ class ThirdStateController: UIViewController {
                         if ch == "-" {
                             continue
                         }
-                        return;
+                        isNumber = false
                     }
                 }
-                call(number: number)
+                if (isNumber) {
+                    call(number: number)
+                } else {
+                    let phoneNumber = findContactByName(name: number)
+                    if (phoneNumber != "") {
+                        call(number: phoneNumber)
+                    }
+                }
             }
         }
         
         
         
+    }
+    
+    func findContactByName(name: String) -> String {
+        let store = CNContactStore()
+        var phone = ""
+        let keysToFectch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
+        let request = CNContactFetchRequest(keysToFetch: keysToFectch as [CNKeyDescriptor])
+        
+        do {
+            try store.enumerateContacts(with: request) {
+                (contact, stop) in
+                let givenName = contact.givenName.lowercased()
+                let fullName = contact.givenName.lowercased() + " " + contact.familyName.lowercased()
+                if (givenName == name || fullName == name) {
+                    print (fullName)
+                    let phoneNumberStruct = contact.phoneNumbers[0].value as CNPhoneNumber
+                    for ch in phoneNumberStruct.stringValue.characters {
+                        if (ch >= "0" && ch <= "9") {
+                            phone = phone + String(ch)
+                        }
+                    }
+                    return
+                    
+                }
+            }
+        }
+        catch {
+            print ("unable to fetch contacts")
+        }
+        return phone
     }
     
     func call(number: String){
@@ -213,6 +262,7 @@ class ThirdStateController: UIViewController {
 
     }
     @IBAction func playvoice(_ sender: Any) {
+        prepareNewPlayer(url: getAudioURL())
         print("play voice!")
         soundPlayer.play()
 
@@ -221,7 +271,7 @@ class ThirdStateController: UIViewController {
     func filter(array: Array<Float>) -> Array<Float> {
         var newRightArray = array.sorted{ abs($0) < abs($1) }
         let threshold = abs(newRightArray[Int(Float(newRightArray.count) * 0.62)])
-        let sample = 500
+        let sample = 300
         var i = 0
         var rightArray = array
         while i < rightArray.count / sample {
@@ -294,7 +344,7 @@ class ThirdStateController: UIViewController {
     }
     
     @IBAction func playOriginal(_ sender: UIButton) {
-        preparePlayer(url: getRecordURL())
+        prepareOldPlayer(url: getRecordURL())
         soundPlayer.play()
     }
     
